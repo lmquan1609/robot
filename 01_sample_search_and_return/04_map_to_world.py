@@ -64,7 +64,7 @@ destination = np.float32([[image.shape[1]/2 - dst_size, image.shape[0] - bottom_
                   [image.shape[1]/2 + dst_size, image.shape[0] - 2*dst_size - bottom_offset], 
                   [image.shape[1]/2 - dst_size, image.shape[0] - 2*dst_size - bottom_offset],
                   ])
-warped = perspect_transform(image, source, destination)
+warped, _ = perspect_transform(image, source, destination)
 colorsel = color_thresh(warped, lower_rgb_thresh=(160, 160, 160))
 # Extract navigable terrain pixels
 xpix, ypix = rover_coords(colorsel)
